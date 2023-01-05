@@ -17,6 +17,8 @@ export default {
 
   mounted() {
     console.log('onMounted')
+    console.log('onMounted')
+    console.log('onMounted')
   }
 }
 </script>
