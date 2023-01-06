@@ -1,11 +1,16 @@
 <template>
   <div class="login_container">
     <canvas id="canvas" />
-    <el-form class="login_form">
+    <el-form
+      class="login_form"
+      ref="loginFormRef"
+      :model="loginForm"
+      :rules="loginRules"
+    >
       <div class="title_container">
         <h2 class="title">用户登录</h2>
       </div>
-      <el-form-item>
+      <el-form-item prop="username">
         <span class="svg_container">
           <svg-icon icon="user"></svg-icon>
         </span>
@@ -13,15 +18,24 @@
           type="text"
           name="username"
           placeholder="请输入用户名"
+          v-model="loginForm.username"
         ></el-input>
       </el-form-item>
-      <el-form-item>
+
+      <el-form-item prop="password">
         <span class="svg_container">
           <svg-icon icon="password"></svg-icon>
         </span>
-        <el-input name="password" placeholder="请输入密码"></el-input>
-        <span class="show_pwd">
-          <svg-icon icon="eye"></svg-icon>
+        <el-input
+          name="password"
+          placeholder="请输入密码"
+          :type="passwordType"
+          v-model="loginForm.password"
+        ></el-input>
+        <span class="show_pwd" @click="onChangePasswordType">
+          <svg-icon
+            :icon="passwordType === 'password' ? 'eye' : 'eye-open'"
+          ></svg-icon>
         </span>
       </el-form-item>
 
@@ -31,6 +45,8 @@
           width: '100%',
           marginBottom: '30px'
         }"
+        :loading="loading"
+        @click="onLogin"
         >登录</el-button
       >
     </el-form>
@@ -38,17 +54,67 @@
 </template>
 
 <script setup>
-import { onMounted } from 'vue'
-
+import { useStore } from 'vuex'
+import { ref, onMounted } from 'vue'
 import AnimationBg from './animation'
+import { validatePassword } from '@/utils/validate'
+
+const store = useStore()
+
+const loginFormRef = ref(null)
+const loginForm = ref({
+  username: 'super-admin',
+  password: '123456'
+})
+const loginRules = ref({
+  username: [
+    {
+      required: true,
+      trigger: 'blur',
+      message: '用户名必填'
+    }
+  ],
+
+  password: [
+    {
+      required: true,
+      trigger: 'blur',
+      validator: validatePassword()
+    }
+  ]
+})
+
+const passwordType = ref('password')
+const onChangePasswordType = () => {
+  passwordType.value = passwordType.value === 'password' ? 'text' : 'password'
+}
+
+const loading = ref(false)
+const onLogin = () => {
+  loginFormRef.value.validate((valid) => {
+    if (!valid) return
+    loading.value = true
+    store
+      .dispatch('user/login', loginForm.value)
+      .then(() => {
+        loading.value = false
+      })
+      .catch((err) => {
+        console.log(err)
+        loading.value = false
+      })
+  })
+}
 
 onMounted(() => {
   AnimationBg()
+  window.onresize = () => {
+    AnimationBg()
+  }
 })
 </script>
 
 <style lang="scss" scoped>
-$bg: #2d3a4b;
 $dark_gray: #889aa4;
 $light_gray: #eee;
 $cursor: #fff;
@@ -57,7 +123,6 @@ $cursor: #fff;
   position: relative;
   height: 100%;
   width: 100%;
-  background-color: $bg;
   overflow: hidden;
 
   #canvas {

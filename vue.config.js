@@ -1,5 +1,4 @@
 const path = require('path')
-const { defineConfig } = require('@vue/cli-service')
 
 function resolve(dir) {
   return path.join(__dirname, dir)
@@ -23,5 +22,14 @@ module.exports = {
         symbolId: 'icon-[name]'
       })
       .end()
+  },
+
+  devServer: {
+    proxy: {
+      '/api': {
+        target: 'https://api.imooc-admin.lgdsunday.club/',
+        changeOrigin: true // 是否跨域
+      }
+    }
   }
 }
