@@ -11,6 +11,6 @@
   position: relative;
   overflow: hidden;
   box-sizing: border-box;
-  padding: 61px 20px 20px 20px;
+  padding: 70px 20px 20px 20px;
 }
 </style>
