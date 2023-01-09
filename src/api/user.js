@@ -7,3 +7,10 @@ export const login = (postdata) => {
     data: postdata
   })
 }
+
+export const getUserInfo = () => {
+  return request({
+    url: '/sys/profile',
+    method: 'GET'
+  })
+}

@@ -21,8 +21,6 @@ import NavBar from './components/navBar.vue'
 import AppMain from './components/appMain.vue'
 import FooterBar from './components/footerBar.vue'
 import variable from '@/styles/variable.module.scss'
-
-console.log(variable)
 </script>
 
 <style lang="scss" scoped>
