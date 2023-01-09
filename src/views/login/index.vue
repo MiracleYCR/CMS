@@ -1,17 +1,17 @@
 <template>
-  <div class="login_container">
+  <div class="login-container">
     <canvas id="canvas" />
     <el-form
-      class="login_form"
+      class="login-form"
       ref="loginFormRef"
       :model="loginForm"
       :rules="loginRules"
     >
-      <div class="title_container">
+      <div class="title-container">
         <h2 class="title">用户登录</h2>
       </div>
       <el-form-item prop="username">
-        <span class="svg_container">
+        <span class="svg-container">
           <svg-icon icon="user"></svg-icon>
         </span>
         <el-input
@@ -23,7 +23,7 @@
       </el-form-item>
 
       <el-form-item prop="password">
-        <span class="svg_container">
+        <span class="svg-container">
           <svg-icon icon="password"></svg-icon>
         </span>
         <el-input
@@ -32,7 +32,7 @@
           :type="passwordType"
           v-model="loginForm.password"
         ></el-input>
-        <span class="show_pwd" @click="onChangePasswordType">
+        <span class="show-pwd" @click="onChangePasswordType">
           <svg-icon
             :icon="passwordType === 'password' ? 'eye' : 'eye-open'"
           ></svg-icon>
@@ -119,7 +119,7 @@ $dark_gray: #889aa4;
 $light_gray: #eee;
 $cursor: #fff;
 
-.login_container {
+.login-container {
   position: relative;
   height: 100%;
   width: 100%;
@@ -129,7 +129,7 @@ $cursor: #fff;
     display: block;
   }
 
-  .login_form {
+  .login-form {
     position: absolute;
     width: 520px;
     overflow: hidden;
@@ -137,7 +137,7 @@ $cursor: #fff;
     top: 50%;
     transform: translate(-50%, -50%);
 
-    .title_container {
+    .title-container {
       position: relative;
       .title {
         font-size: 26px;
@@ -172,14 +172,14 @@ $cursor: #fff;
       }
     }
 
-    .svg_container {
+    .svg-container {
       padding: 6px 5px 6px 15px;
       color: $dark_gray;
       vertical-align: middle;
       display: inline-block;
     }
 
-    .show_pwd {
+    .show-pwd {
       position: absolute;
       right: 10px;
       top: 7px;
