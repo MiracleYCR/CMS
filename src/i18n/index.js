@@ -22,7 +22,7 @@ const i18n = createI18n({
   legacy: false,
   // 全局导入
   globalInjection: true,
-  locale: store.getters.lang || 'zh',
+  locale: store.getters.lang,
   messages
 })
 
