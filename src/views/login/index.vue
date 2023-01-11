@@ -8,7 +8,8 @@
       :rules="loginRules"
     >
       <div class="title-container">
-        <h2 class="title">用户登录</h2>
+        <h2 class="title">{{ $t('msg.login.title') }}</h2>
+        <LangSelect class="lang-select" />
       </div>
       <el-form-item prop="username">
         <span class="svg-container">
@@ -17,7 +18,7 @@
         <el-input
           type="text"
           name="username"
-          placeholder="请输入用户名"
+          :placeholder="$t('msg.login.usernamePlaceholder')"
           v-model="loginForm.username"
         ></el-input>
       </el-form-item>
@@ -28,7 +29,7 @@
         </span>
         <el-input
           name="password"
-          placeholder="请输入密码"
+          :placeholder="$t('msg.login.passwordPlaceholder')"
           :type="passwordType"
           v-model="loginForm.password"
         ></el-input>
@@ -47,7 +48,7 @@
         }"
         :loading="loading"
         @click="onLogin"
-        >登录</el-button
+        >{{ $t('msg.login.loginBtn') }}</el-button
       >
     </el-form>
   </div>
@@ -56,9 +57,12 @@
 <script setup>
 import { useStore } from 'vuex'
 import { ref, onMounted } from 'vue'
+import { useI18n } from 'vue-i18n'
 import AnimationBg from './animation'
 import { validatePassword } from '@/utils/validate'
+import LangSelect from '@/components/langSelect/index.vue'
 
+const i18n = useI18n()
 const store = useStore()
 
 const loginFormRef = ref(null)
@@ -71,7 +75,7 @@ const loginRules = ref({
     {
       required: true,
       trigger: 'blur',
-      message: '用户名必填'
+      message: i18n.t('msg.login.usernameRule')
     }
   ],
 
@@ -79,7 +83,7 @@ const loginRules = ref({
     {
       required: true,
       trigger: 'blur',
-      validator: validatePassword()
+      validator: validatePassword(i18n)
     }
   ]
 })
@@ -145,6 +149,17 @@ $cursor: #fff;
         margin: 0px auto 40px auto;
         text-align: center;
         font-weight: bold;
+      }
+
+      ::v-deep .lang-select {
+        position: absolute;
+        top: 4px;
+        right: 0;
+        padding: 4px;
+        font-size: 22px;
+        border-radius: 4px;
+        cursor: pointer;
+        background-color: #ffffff;
       }
     }
 

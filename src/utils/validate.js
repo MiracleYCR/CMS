@@ -4,13 +4,13 @@ export function isExternal(path) {
 }
 
 // 密码校验
-export function validatePassword() {
+export function validatePassword(i18n) {
   return (rule, value, callback) => {
     if (!value) {
-      callback(new Error('密码必填'))
+      callback(new Error(i18n.t('msg.login.passwordRule1')))
     } else {
       if (value.length < 6) {
-        callback(new Error('密码不能少于6位'))
+        callback(new Error(i18n.t('msg.login.passwordRule2')))
       } else {
         callback()
       }

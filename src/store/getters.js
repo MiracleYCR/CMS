@@ -10,7 +10,9 @@ const getters = {
   // 样式访问
   cssVar: () => styleVariables,
   // 侧边栏展开
-  sideBarOpened: (state) => state.app.sideBarOpened
+  sideBarOpened: (state) => state.app.sideBarOpened,
+  // 语言
+  lang: (state) => state.app.lang
 }
 
 export default getters

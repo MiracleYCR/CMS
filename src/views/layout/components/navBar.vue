@@ -6,22 +6,24 @@
     <BreadCrumb class="breadcrumb-container" />
 
     <div class="right-menu">
+      <LangSelect class="right-menu-item hover-effect" />
+
       <el-dropdown class="avatar-container" trigger="click">
         <div class="avatar-wrapper">
           <el-avatar
             shape="circle"
             :size="40"
-            :src="$store.getters.userInfo.avatar"
+            src="https://avatars.githubusercontent.com/u/29778918?v=4"
           ></el-avatar>
         </div>
         <template #dropdown>
           <el-dropdown-menu class="user-dropdown">
             <router-link to="/">
-              <el-dropdown-item>首页</el-dropdown-item>
+              <el-dropdown-item>{{ $t('msg.navBar.home') }}</el-dropdown-item>
             </router-link>
-            <el-dropdown-item divided @click="onLogout"
-              >退出登录</el-dropdown-item
-            >
+            <el-dropdown-item divided @click="onLogout">{{
+              $t('msg.navBar.logout')
+            }}</el-dropdown-item>
           </el-dropdown-menu>
         </template>
       </el-dropdown>
@@ -34,6 +36,7 @@ import { useStore } from 'vuex'
 
 import Collapse from '@/components/collapse/index.vue'
 import BreadCrumb from '@/components/breadCrumb/index.vue'
+import LangSelect from '@/components/langSelect/index.vue'
 
 const store = useStore()
 
@@ -69,6 +72,17 @@ const onLogout = () => {
     align-items: center;
     float: right;
     padding-right: 20px;
+
+    ::v-deep .right-menu-item {
+      display: inline-block;
+      padding: 0 18px 0 0;
+      font-size: 24px;
+      color: #5a5e66;
+      &.hover-effect {
+        cursor: pointer;
+      }
+    }
+
     ::v-deep .avatar-container {
       cursor: pointer;
 
