@@ -1,5 +1,10 @@
 <template>
   <div class="navBar-container">
+    <!-- 折叠按钮 -->
+    <Collapse class="collapse-container" />
+    <!-- 面包屑 -->
+    <BreadCrumb class="breadcrumb-container" />
+
     <div class="right-menu">
       <el-dropdown class="avatar-container" trigger="click">
         <div class="avatar-wrapper">
@@ -27,6 +32,9 @@
 <script setup>
 import { useStore } from 'vuex'
 
+import Collapse from '@/components/collapse/index.vue'
+import BreadCrumb from '@/components/breadCrumb/index.vue'
+
 const store = useStore()
 
 const onLogout = () => {
@@ -41,6 +49,19 @@ const onLogout = () => {
   overflow: hidden;
   background-color: #ffffff;
   box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
+
+  .collapse-container {
+    height: 100%;
+    float: left;
+    transition: background 0.5s;
+    &:hover {
+      background: rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  .breadcrumb-container {
+    float: left;
+  }
 
   .right-menu {
     height: 100%;

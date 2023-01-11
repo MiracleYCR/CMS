@@ -9,6 +9,8 @@ module.exports = {
   transpileDependencies: true,
 
   chainWebpack(config) {
+    config.resolve.alias.set('path', require.resolve('path-browserify'))
+
     // 设置 svg-sprite-loader
     config.module.rule('svg').exclude.add(resolve('src/icons')).end()
     config.module
