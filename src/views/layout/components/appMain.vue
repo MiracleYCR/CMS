@@ -1,10 +1,67 @@
 <template>
   <div class="app-main">
-    <router-view></router-view>
+    <router-view v-slot="{ Component, route }">
+      <transition name="fade-transform" mode="out-in">
+        <keep-alive>
+          <component :is="Component" :key="route.path" />
+        </keep-alive>
+      </transition>
+    </router-view>
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import { watch } from 'vue'
+import { useStore } from 'vuex'
+import { useRoute } from 'vue-router'
+
+import { isTags } from '@/utils/tags'
+import { generateTitle, watchSwitchLang } from '@/utils/i18n'
+
+const store = useStore()
+const route = useRoute()
+
+watch(
+  route,
+  (to) => {
+    console.log('123132')
+    // 不是所有的路由都需要保存
+    if (!isTags(to.path)) return
+
+    const { fullPath, meta, name, params, path, query } = to
+
+    store.commit('app/addTagsViewList', {
+      fullPath,
+      meta,
+      name,
+      params,
+      path,
+      query,
+      title: !route.meta
+        ? route.path.split('/')[route.path.split('/').length - 1]
+        : generateTitle(route.meta.title)
+    })
+  },
+  {
+    immediate: true
+  }
+)
+
+watchSwitchLang(() => {
+  store.getters.tagsViewList.forEach((route, index) => {
+    console.log(route)
+    store.commit('app/changeTagsView', {
+      index,
+      tag: {
+        ...route,
+        title: !route.meta
+          ? route.path.split('/')[route.path.split('/').length - 1]
+          : generateTitle(route.meta.title)
+      }
+    })
+  })
+})
+</script>
 
 <style lang="scss" scoped>
 .app-main {
@@ -13,6 +70,6 @@
   position: relative;
   overflow: hidden;
   box-sizing: border-box;
-  padding: 70px 20px 20px 20px;
+  padding: 112px 20px 20px 20px;
 }
 </style>

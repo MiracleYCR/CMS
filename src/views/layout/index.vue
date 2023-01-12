@@ -11,7 +11,9 @@
     <div class="main-container">
       <div class="fixed-header">
         <NavBar />
+        <TagsView />
       </div>
+
       <AppMain />
       <FooterBar />
     </div>
@@ -21,6 +23,7 @@
 <script setup>
 import SideBar from './components/sideBar'
 import NavBar from './components/navBar.vue'
+import TagsView from '@/components/tagsView/index.vue'
 import AppMain from './components/appMain.vue'
 import FooterBar from './components/footerBar.vue'
 </script>

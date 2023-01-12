@@ -1,13 +1,12 @@
 <template>
   <div class="collapse-wrapper" @click="onTriggerCollapse">
-    <svgIcon class="collapse" :icon="icon"></svgIcon>
+    <SvgIcon class="collapse" :icon="icon" />
   </div>
 </template>
 
 <script setup>
 import { computed } from 'vue'
 import { useStore } from 'vuex'
-import SvgIcon from '@/components/svgIcon/index.vue'
 
 const store = useStore()
 

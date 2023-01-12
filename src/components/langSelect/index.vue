@@ -6,7 +6,7 @@
         :effect="effect"
         :auto-close="200"
       >
-        <svgIcon icon="language" />
+        <SvgIcon icon="language" />
       </el-tooltip>
     </div>
     <template #dropdown>
@@ -27,8 +27,6 @@ import { useStore } from 'vuex'
 import { useI18n } from 'vue-i18n'
 import { ElMessage } from 'element-plus'
 import { computed, defineProps } from 'vue'
-
-import SvgIcon from '@/components/svgIcon'
 
 defineProps({
   effect: {

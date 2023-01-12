@@ -6,6 +6,7 @@
     <BreadCrumb class="breadcrumb-container" />
 
     <div class="right-menu">
+      <HeaderSearch class="right-menu-item hover-effect" />
       <ScreenFull class="right-menu-item hover-effect" />
       <ThemeSelect class="right-menu-item hover-effect" />
       <LangSelect class="right-menu-item hover-effect" />
@@ -41,6 +42,7 @@ import BreadCrumb from '@/components/breadCrumb/index.vue'
 import LangSelect from '@/components/langSelect/index.vue'
 import ThemeSelect from '@/components/themeSelect/index.vue'
 import ScreenFull from '@/components/screenFull/index.vue'
+import HeaderSearch from '@/components/headerSearch/index.vue'
 
 const store = useStore()
 

@@ -28,7 +28,6 @@
 <script setup>
 import { ref } from 'vue'
 import ColorPicker from './colorPicker.vue'
-import SvgIcon from '@/components/svgIcon/index.vue'
 
 const colorPickerVisible = ref(false)
 const onSetTheme = (command) => {

@@ -58,7 +58,6 @@ export function writeNewStyle(newStyle) {
 export async function generateNewStyle(primaryColor) {
   // 根据主色生成色值表
   const colors = generateColors(primaryColor)
-  console.log(colors)
   // 根据当前 element-plus 的默认样式表，并且把需要替换的色值打上标记
   let cssText = await getOriginStyle()
   // 遍历生成的色值表，在默认样式表进行全局替换
@@ -68,6 +67,5 @@ export async function generateNewStyle(primaryColor) {
       '$1' + colors[key]
     )
   })
-  console.log(cssText)
   return cssText
 }

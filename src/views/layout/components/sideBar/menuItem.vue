@@ -1,13 +1,11 @@
 <template>
-  <svgIcon :icon="icon"></svgIcon>
+  <SvgIcon :icon="icon" />
   <span>{{ generateTitle(title) }}</span>
 </template>
 
 <script setup>
 import { defineProps } from 'vue'
 import { generateTitle } from '@/utils/i18n'
-
-import SvgIcon from '@/components/svgIcon/index.vue'
 
 defineProps({
   title: {

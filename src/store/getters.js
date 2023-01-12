@@ -19,7 +19,9 @@ const getters = {
   // 语言
   lang: (state) => state.app.lang,
   // 主题色
-  mainColor: (state) => state.app.mainColor
+  mainColor: (state) => state.app.mainColor,
+  // tag 标签
+  tagsViewList: (state) => state.app.tagsViewList
 }
 
 export default getters

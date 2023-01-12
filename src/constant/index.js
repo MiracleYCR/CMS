@@ -9,3 +9,5 @@ export const LANG = 'cms-lang'
 export const MAIN_COLOR = 'cms-mainColor'
 
 export const DEFAULT_COLOR = '#409eff'
+
+export const TAGS_VIEW = 'cms-tags-view'
