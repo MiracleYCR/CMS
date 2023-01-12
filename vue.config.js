@@ -13,6 +13,7 @@ module.exports = {
 
     // 设置 svg-sprite-loader
     config.module.rule('svg').exclude.add(resolve('src/icons')).end()
+
     config.module
       .rule('icons')
       .test(/\.svg$/)
@@ -23,6 +24,14 @@ module.exports = {
       .options({
         symbolId: 'icon-[name]'
       })
+      .end()
+
+    // 新增规则
+    config.module
+      .rule('element-plus-2')
+      .test(/\.mjs$/)
+      .type('javascript/auto')
+      .include.add(/node_modules/)
       .end()
   },
 

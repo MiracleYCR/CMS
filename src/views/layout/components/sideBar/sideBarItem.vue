@@ -1,25 +1,27 @@
 <template>
-  <el-submenu v-if="route.children.length > 0" :index="route.path">
+  <!-- 支持渲染多级 menu 菜单 -->
+  <el-sub-menu v-if="route.children.length > 0" :index="route.path">
     <template #title>
-      <MenuItem :title="route.meta.title" :icon="route.meta.icon" />
+      <menu-item :title="route.meta.title" :icon="route.meta.icon"></menu-item>
     </template>
-
+    <!-- 循环渲染 -->
     <sideBarItem
       v-for="item in route.children"
       :key="item.path"
       :route="item"
-    />
-  </el-submenu>
+    ></sideBarItem>
+  </el-sub-menu>
+  <!-- 渲染 item 项 -->
   <el-menu-item v-else :index="route.path">
-    <MenuItem :title="route.meta.title" :icon="route.meta.icon" />
+    <menu-item :title="route.meta.title" :icon="route.meta.icon"></menu-item>
   </el-menu-item>
 </template>
 
 <script setup>
 import { defineProps } from 'vue'
-
 import MenuItem from './menuItem.vue'
 
+// 定义 props
 defineProps({
   route: {
     type: Object,

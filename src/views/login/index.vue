@@ -41,6 +41,7 @@
       </el-form-item>
 
       <el-button
+        size="large"
         type="primary"
         :style="{
           width: '100%',
@@ -174,6 +175,7 @@ $cursor: #fff;
       display: inline-block;
       height: 47px;
       width: 85%;
+      background-color: none;
 
       input {
         background: transparent;

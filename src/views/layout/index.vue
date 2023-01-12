@@ -5,7 +5,7 @@
   >
     <SideBar
       class="sidebar-container"
-      :style="{ backgroundColor: variable.menuBg }"
+      :style="{ backgroundColor: $store.getters.cssVar.menuBg }"
     />
 
     <div class="main-container">
@@ -23,7 +23,6 @@ import SideBar from './components/sideBar'
 import NavBar from './components/navBar.vue'
 import AppMain from './components/appMain.vue'
 import FooterBar from './components/footerBar.vue'
-import variable from '@/styles/variable.module.scss'
 </script>
 
 <style lang="scss" scoped>
@@ -48,12 +47,4 @@ import variable from '@/styles/variable.module.scss'
 .hideSideBar .fixed-header {
   width: calc(100% - $hideSideBarWidth);
 }
-
-// .openSlidebar .sidebar-container {
-//   width: $sideBarWidth;
-// }
-
-// .hideSlidebar .sidebar-container {
-//   width: $hideSideBarWidth;
-// }
 </style>

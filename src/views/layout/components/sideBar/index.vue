@@ -6,7 +6,9 @@
         shape="square"
         src="https://avatars.githubusercontent.com/u/29778918?v=4"
       ></el-avatar>
-      <h1 class="logo-title" v-if="$store.getters.sideBarOpened">Miracle</h1>
+      <h1 class="logo-title" v-if="$store.getters.sideBarOpened">
+        Miracle-Admin
+      </h1>
     </div>
     <el-scrollbar>
       <SideBarMenu />
@@ -33,7 +35,7 @@ const logoHeight = 44
     margin-left: 15px;
     color: #ffffff;
     font-weight: 600;
-    font-size: 18px;
+    font-size: 15px;
     white-space: nowrap;
   }
 }

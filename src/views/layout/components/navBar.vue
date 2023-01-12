@@ -6,6 +6,8 @@
     <BreadCrumb class="breadcrumb-container" />
 
     <div class="right-menu">
+      <ScreenFull class="right-menu-item hover-effect" />
+      <ThemeSelect class="right-menu-item hover-effect" />
       <LangSelect class="right-menu-item hover-effect" />
 
       <el-dropdown class="avatar-container" trigger="click">
@@ -37,6 +39,8 @@ import { useStore } from 'vuex'
 import Collapse from '@/components/collapse/index.vue'
 import BreadCrumb from '@/components/breadCrumb/index.vue'
 import LangSelect from '@/components/langSelect/index.vue'
+import ThemeSelect from '@/components/themeSelect/index.vue'
+import ScreenFull from '@/components/screenFull/index.vue'
 
 const store = useStore()
 
@@ -75,7 +79,7 @@ const onLogout = () => {
 
     ::v-deep .right-menu-item {
       display: inline-block;
-      padding: 0 18px 0 0;
+      padding: 0 15px 0 0;
       font-size: 24px;
       color: #5a5e66;
       &.hover-effect {

@@ -1,4 +1,6 @@
-import styleVariables from '@/styles/variable.module.scss'
+import { MAIN_COLOR } from '@/constant'
+import { getItem } from '@/utils/storage'
+import { generateColors } from '@/utils/theme'
 
 const getters = {
   // 鉴权
@@ -8,11 +10,16 @@ const getters = {
   // 用户信息
   userInfo: (state) => state.user.userInfo,
   // 样式访问
-  cssVar: () => styleVariables,
+  cssVar: (state) => ({
+    ...state.app.styleVariables,
+    ...generateColors(getItem(MAIN_COLOR))
+  }),
   // 侧边栏展开
   sideBarOpened: (state) => state.app.sideBarOpened,
   // 语言
-  lang: (state) => state.app.lang
+  lang: (state) => state.app.lang,
+  // 主题色
+  mainColor: (state) => state.app.mainColor
 }
 
 export default getters
