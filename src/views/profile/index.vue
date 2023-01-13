@@ -8,7 +8,7 @@
         <el-card>
           <el-tabs v-model="activeTab">
             <el-tab-pane :label="$t('msg.profile.feature')" name="feature">
-              <Feature />
+              <Feature :featureData="featureData" />
             </el-tab-pane>
           </el-tabs>
         </el-card>
