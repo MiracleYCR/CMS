@@ -14,3 +14,10 @@ export const getUserInfo = () => {
     method: 'GET'
   })
 }
+
+export const getFeature = () => {
+  return request({
+    url: '/user/feature',
+    method: 'GET'
+  })
+}

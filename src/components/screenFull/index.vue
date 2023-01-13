@@ -1,6 +1,9 @@
 <template>
   <div @click="onTriggerScreenFull">
-    <SvgIcon :icon="isFullScreen ? 'exit-fullscreen' : 'fullscreen'" />
+    <SvgIcon
+      id="guide-full"
+      :icon="isFullScreen ? 'exit-fullscreen' : 'fullscreen'"
+    />
   </div>
 </template>
 

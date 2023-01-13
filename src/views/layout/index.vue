@@ -4,6 +4,7 @@
     :class="[$store.getters.sideBarOpened ? 'openSideBar' : 'hideSideBar']"
   >
     <SideBar
+      id="guide-sidebar"
       class="sidebar-container"
       :style="{ backgroundColor: $store.getters.cssVar.menuBg }"
     />
@@ -15,6 +16,7 @@
       </div>
 
       <AppMain />
+
       <FooterBar />
     </div>
   </div>

@@ -1,6 +1,6 @@
 <template>
   <div class="collapse-wrapper" @click="onTriggerCollapse">
-    <SvgIcon class="collapse" :icon="icon" />
+    <SvgIcon id="guide-collapse" class="collapse" :icon="icon" />
   </div>
 </template>
 

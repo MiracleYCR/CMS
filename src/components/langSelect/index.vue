@@ -6,7 +6,7 @@
         :effect="effect"
         :auto-close="200"
       >
-        <SvgIcon icon="language" />
+        <SvgIcon id="guide-lang" icon="language" />
       </el-tooltip>
     </div>
     <template #dropdown>

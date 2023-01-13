@@ -1,12 +1,14 @@
 <template>
   <div class="app-main">
-    <router-view v-slot="{ Component, route }">
-      <transition name="fade-transform" mode="out-in">
-        <keep-alive>
-          <component :is="Component" :key="route.path" />
-        </keep-alive>
-      </transition>
-    </router-view>
+    <div class="app-wrapper">
+      <router-view v-slot="{ Component, route }">
+        <transition name="fade-transform" mode="out-in">
+          <keep-alive>
+            <component :is="Component" :key="route.path" />
+          </keep-alive>
+        </transition>
+      </router-view>
+    </div>
   </div>
 </template>
 
@@ -24,7 +26,6 @@ const route = useRoute()
 watch(
   route,
   (to) => {
-    console.log('123132')
     // 不是所有的路由都需要保存
     if (!isTags(to.path)) return
 
@@ -70,6 +71,14 @@ watchSwitchLang(() => {
   position: relative;
   overflow: hidden;
   box-sizing: border-box;
-  padding: 112px 20px 20px 20px;
+  padding: 112px 20px 15px 20px;
+
+  .app-wrapper {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    padding-right: 10px;
+    box-sizing: border-box;
+  }
 }
 </style>

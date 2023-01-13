@@ -3,9 +3,10 @@
     <!-- 折叠按钮 -->
     <Collapse class="collapse-container" />
     <!-- 面包屑 -->
-    <BreadCrumb class="breadcrumb-container" />
+    <BreadCrumb id="guide-breadcrumb" class="breadcrumb-container" />
 
     <div class="right-menu">
+      <Guide class="right-menu-item hover-effect" />
       <HeaderSearch class="right-menu-item hover-effect" />
       <ScreenFull class="right-menu-item hover-effect" />
       <ThemeSelect class="right-menu-item hover-effect" />
@@ -43,6 +44,7 @@ import LangSelect from '@/components/langSelect/index.vue'
 import ThemeSelect from '@/components/themeSelect/index.vue'
 import ScreenFull from '@/components/screenFull/index.vue'
 import HeaderSearch from '@/components/headerSearch/index.vue'
+import Guide from '@/components/guide/index.vue'
 
 const store = useStore()
 

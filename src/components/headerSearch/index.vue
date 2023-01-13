@@ -1,6 +1,11 @@
 <template>
   <div class="header-search-container" :class="{ show: isShow }">
-    <SvgIcon class="search-icon" icon="search" @click.stop="onShow" />
+    <SvgIcon
+      id="guide-search"
+      class="search-icon"
+      icon="search"
+      @click.stop="onShow"
+    />
     <el-select
       remote
       filterable

@@ -24,12 +24,18 @@ const publicRoutes = [
       {
         path: '/404',
         name: '404',
-        component: () => import('@/views/errorPage/404.vue')
+        component: () =>
+          import(
+            /* webpackChunkName: "error-page-404" */ '@/views/errorPage/404.vue'
+          )
       },
       {
         path: '/401',
         name: '401',
-        component: () => import('@/views/errorPage/401.vue')
+        component: () =>
+          import(
+            /* webpackChunkName: "error-page-401" */ '@/views/errorPage/401.vue'
+          )
       }
     ]
   }
