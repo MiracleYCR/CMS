@@ -15,10 +15,10 @@
 
     <template #footer>
       <div class="btn-group">
-        <el-button size="mini" @click="onClose">{{
+        <el-button size="small" @click="onClose">{{
           $t('msg.universal.cancel')
         }}</el-button>
-        <el-button size="mini" type="primary" @click="onConfirm">{{
+        <el-button size="small" type="primary" @click="onConfirm">{{
           $t('msg.universal.confirm')
         }}</el-button>
       </div>
