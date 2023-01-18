@@ -67,7 +67,7 @@
               <el-button type="primary" size="small" @click="onShow(row)">
                 {{ $t('msg.excel.show') }}
               </el-button>
-              <el-button type="info" size="small">
+              <el-button type="info" size="small" @click="onShowRole(row)">
                 {{ $t('msg.excel.showRole') }}
               </el-button>
               <el-button type="danger" size="small" @click="onRemove(row)">
@@ -91,17 +91,24 @@
     </el-card>
 
     <ExportExcel v-model="exportExcelVisible" />
+
+    <RolesDialog
+      v-model="roleDialogVisible"
+      :userId="curUserId"
+      @updateRole="getListData"
+    />
   </div>
 </template>
 
 <script setup>
 import { useI18n } from 'vue-i18n'
-import { ref, onActivated } from 'vue'
+import { ref, onActivated, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { watchSwitchLang } from '@/utils/i18n'
 import { ElMessageBox, ElMessage } from 'element-plus'
 import { getUserManageList, deleteUser } from '@/api/user-manage'
 
+import RolesDialog from './components/roles.vue'
 import ExportExcel from './components/exportExcel.vue'
 
 const i18n = useI18n()
@@ -161,6 +168,17 @@ const exportExcelVisible = ref(false)
 const onExportExcel = () => {
   exportExcelVisible.value = true
 }
+
+// 用户角色
+const curUserId = ref('')
+const roleDialogVisible = ref(false)
+const onShowRole = (row) => {
+  curUserId.value = row._id
+  roleDialogVisible.value = true
+}
+watch(roleDialogVisible, (val) => {
+  !val && (curUserId.value = '')
+})
 
 // 获取数据
 getListData()

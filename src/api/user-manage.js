@@ -32,3 +32,19 @@ export const getUserDetail = (id) => {
     url: `/user-manage/detail/${id}`
   })
 }
+
+export const getUserRoles = (id) => {
+  return request({
+    url: `/user-manage/role/${id}`
+  })
+}
+
+export const updateUserRoles = ({ id, roles }) => {
+  return request({
+    url: `/user-manage/update-role/${id}`,
+    method: 'POST',
+    data: {
+      roles
+    }
+  })
+}

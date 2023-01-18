@@ -6,9 +6,7 @@
         shape="square"
         src="https://avatars.githubusercontent.com/u/29778918?v=4"
       ></el-avatar>
-      <h1 class="logo-title" v-if="$store.getters.sideBarOpened">
-        Miracle-Admin
-      </h1>
+      <h1 class="logo-title" v-if="$store.getters.sideBarOpened">Miracle</h1>
     </div>
     <el-scrollbar>
       <SideBarMenu />
