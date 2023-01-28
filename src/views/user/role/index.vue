@@ -25,7 +25,12 @@
           :label="$t('msg.role.action')"
           #default="{ row }"
         >
-          <el-button type="primary" size="small" @click="onDistribute(row)">
+          <el-button
+            v-permission="['distributePermission']"
+            type="primary"
+            size="small"
+            @click="onDistribute(row)"
+          >
             {{ $t('msg.role.assignPermissions') }}
           </el-button>
         </el-table-column>
@@ -74,7 +79,7 @@ watchSwitchLang(getRoleListData)
     }
     .roleList-table {
       width: 100%;
-      height: calc(100% - 52px);
+      height: 100%;
     }
   }
 }

@@ -59,7 +59,7 @@ watchSwitchLang(getPermissionListData)
     }
     .permissionList-table {
       width: 100%;
-      height: calc(100% - 52px);
+      height: 100%;
     }
   }
 }

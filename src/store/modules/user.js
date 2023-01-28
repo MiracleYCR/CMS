@@ -1,5 +1,5 @@
 import md5 from 'md5'
-import router from '@/router/index'
+import router, { resetRoute } from '@/router/index'
 import { TOKEN } from '@/constant/index'
 import { login, getUserInfo } from '@/api/user'
 
@@ -46,6 +46,7 @@ export default {
     },
 
     logout() {
+      resetRoute()
       this.commit('user/setToken', '')
       this.commit('user/setUserInfo', {})
       removeItem(TOKEN)

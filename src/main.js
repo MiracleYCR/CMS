@@ -12,6 +12,8 @@ import '@/styles/index.scss'
 import installIcons from '@/icons/index'
 import installElementPlus from './plugins/element'
 
+// 全局指令
+import directivesObj from '@/utils/directives'
 // 全局属性
 import { registerPrint, registerFilter } from '@/utils/globals'
 
@@ -27,5 +29,9 @@ registerPrint(app)
 registerFilter(app)
 // 注册全局组件
 app.component('SvgIcon', SvgIcon)
+// 注册全局指令
+Object.entries(directivesObj).forEach(([k, v]) => {
+  app.directive(k, v)
+})
 
 app.use(i18n).use(store).use(router).mount('#app')
