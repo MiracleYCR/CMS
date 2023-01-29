@@ -23,10 +23,21 @@ export const publicRoutes = [
       {
         path: '/profile',
         name: 'profile',
-        component: () => import('@/views/profile/index.vue'),
+        component: () =>
+          import(/* webpackChunkName: "profile" */ '@/views/profile/index.vue'),
         meta: {
           title: 'profile',
-          icon: 'personnel'
+          icon: 'personnel-info'
+        }
+      },
+      {
+        path: '/chart',
+        name: 'chart',
+        component: () =>
+          import(/* webpackChunkName: "chart" */ '@/views/chart/index.vue'),
+        meta: {
+          title: 'chart',
+          icon: 'chart'
         }
       },
       {
