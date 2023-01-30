@@ -96,11 +96,9 @@ const onCurrentChange = async (currentPage) => {
 }
 
 const onShow = (row) => {
-  console.log(row)
   router.push(`/article/${row._id}`)
 }
 const onRemove = (row) => {
-  console.log(row)
   ElMessageBox.confirm(
     i18n.t('msg.article.dialogTitle1') +
       row.title +
@@ -144,13 +142,13 @@ onMounted(() => {
 
   .body {
     flex: 1;
-    ::v-deep .el-card__body {
+    :deep(.el-card__body) {
       height: 100%;
     }
 
     .body-table {
       height: calc(100% - 52px);
-      ::v-deep .sortable-ghost {
+      :deep(.sortable-ghost) {
         opacity: 0.4;
         color: #ffffff;
         background-color: #304156;

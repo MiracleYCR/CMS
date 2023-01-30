@@ -219,7 +219,7 @@ onActivated(getListData)
   .body {
     flex: 1;
 
-    ::v-deep .el-card__body {
+    :deep(.el-card__body) {
       height: 100%;
     }
 
@@ -228,13 +228,13 @@ onActivated(getListData)
     }
   }
 
-  ::v-deep .avatar {
+  :deep(.avatar) {
     width: 60px;
     height: 60px;
     border-radius: 50%;
   }
 
-  ::v-deep .el-tag {
+  :deep(.el-tag) {
     margin-right: 6px;
   }
 

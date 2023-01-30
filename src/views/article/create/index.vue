@@ -65,7 +65,7 @@ if (articleId) {
     width: 100%;
     height: 100%;
 
-    ::v-deep .el-card__body {
+    :deep(.el-card__body) {
       height: inherit;
       display: flex;
       flex-direction: column;
@@ -86,7 +86,7 @@ if (articleId) {
   .title {
     margin-bottom: 20px;
 
-    ::v-deep .el-input__wrapper {
+    :deep(.el-input__wrapper) {
       border: 1px solid rgba(0, 0, 0, 0.12);
     }
   }

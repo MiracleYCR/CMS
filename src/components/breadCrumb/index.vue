@@ -68,7 +68,7 @@ watch(
     }
   }
 
-  ::v-deep .no-redirect {
+  :deep(.no-redirect) {
     color: #97a8be;
     cursor: text;
   }

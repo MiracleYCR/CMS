@@ -54,7 +54,7 @@ watchSwitchLang(getPermissionListData)
   .permissionList-wrapper {
     flex: 1;
 
-    ::v-deep .el-card__body {
+    :deep(.el-card__body) {
       height: 100%;
     }
     .permissionList-table {

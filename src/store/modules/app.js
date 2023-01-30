@@ -48,7 +48,6 @@ export default {
      * @param {type: 'other' || 'right' || 'index'} payload
      */
     removeTagsView(state, payload) {
-      console.log(payload)
       if (payload.type === 'index') {
         state.tagsViewList.splice(payload.index, 1)
       } else if (payload.type === 'other') {
@@ -56,7 +55,6 @@ export default {
           payload.index + 1,
           state.tagsViewList.length - payload.index + 1
         )
-        console.log(state.tagsViewList)
         state.tagsViewList.splice(0, payload.index)
       } else if (payload.type === 'right') {
         state.tagsViewList.splice(

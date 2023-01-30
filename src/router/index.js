@@ -76,7 +76,6 @@ export const resetRoute = () => {
     store.getters.userInfo.permission.menus
   ) {
     const menus = store.getters.userInfo.permission.menus
-    console.log(menus)
     menus.forEach((item) => {
       router.removeRoute(item)
     })

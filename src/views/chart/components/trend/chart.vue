@@ -17,8 +17,6 @@ const props = defineProps({
   }
 })
 
-console.log(i18n, props)
-
 let chartObj
 const trendChartRef = ref(null)
 

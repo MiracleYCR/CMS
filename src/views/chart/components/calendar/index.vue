@@ -76,11 +76,11 @@ watch(currentDate, (val) => {
 .calendar-container {
   height: 443px;
   .calendar {
-    ::v-deep .el-calendar__body {
+    :deep(.el-calendar__body) {
       padding: 0 12px 12px;
       font-size: 14px;
     }
-    ::v-deep .el-calendar-day {
+    :deep(.el-calendar-day) {
       height: 66px !important;
       padding: 0 !important;
       p {

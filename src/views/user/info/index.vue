@@ -113,7 +113,6 @@ const props = defineProps({
 const detailData = ref({})
 const getUserDetailData = async () => {
   detailData.value = await getUserDetail(props.id)
-  console.log(detailData.value)
 }
 
 const printLoading = ref(false)

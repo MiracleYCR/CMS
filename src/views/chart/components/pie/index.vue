@@ -22,7 +22,6 @@ const i18n = useI18n()
 const pieChartData = ref([])
 const getPieChartData = async () => {
   pieChartData.value = await getPieChart()
-  console.log(pieChartData.value)
   renderChart()
 }
 

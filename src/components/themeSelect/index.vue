@@ -30,8 +30,7 @@ import { ref } from 'vue'
 import ColorPicker from './colorPicker.vue'
 
 const colorPickerVisible = ref(false)
-const onSetTheme = (command) => {
-  console.log(command)
+const onSetTheme = () => {
   colorPickerVisible.value = true
 }
 </script>

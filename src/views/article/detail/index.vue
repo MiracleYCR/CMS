@@ -37,7 +37,6 @@ const getArticleDetailData = async () => {
 }
 
 const onEdit = () => {
-  console.log(router)
   router.push(`/article/editor/${articleId}`)
 }
 

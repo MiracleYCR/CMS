@@ -36,7 +36,6 @@ const generateData = (results) => {
     const userInfo = {}
     Object.keys(item).forEach((key) => {
       if (USER_DATAMAP[key] === 'openTime') {
-        console.log(item[key])
         userInfo[USER_DATAMAP[key]] = formatDate(item[key])
         return
       }

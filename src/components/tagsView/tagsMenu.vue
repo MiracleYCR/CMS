@@ -25,7 +25,6 @@ const onRefresh = () => {
   router.go(0)
 }
 const onCloseRight = () => {
-  console.log('123123')
   store.commit('app/removeTagsView', {
     type: 'right',
     index: props.index

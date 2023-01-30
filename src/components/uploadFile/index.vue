@@ -110,7 +110,6 @@ const renderData = (rawFile) => {
       const header = getHeadersRow(worksheet)
       // 解析数据体
       const results = XLSX.utils.sheet_to_json(worksheet)
-      console.log(results)
       // 传入解析之后的数据
       generateData({ header, results })
       // 处理 loading

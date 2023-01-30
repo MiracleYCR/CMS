@@ -76,7 +76,6 @@ const formatJson = (headers, rows) => {
       // 角色
       if (headers[key] === 'role') {
         const roleArr = item[headers[key]]
-        console.log(roleArr)
         return JSON.stringify(roleArr.map((role) => role.title))
       }
       // 时间
